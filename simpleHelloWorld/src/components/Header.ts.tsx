@@ -14,6 +14,7 @@ export  const HeaderComponent = () => {
     return (
         <div className="header">
             <LogoComponent/>
+            <div className='title'>Food Delivery App</div>
             <NavBar/>
         </div>
     );

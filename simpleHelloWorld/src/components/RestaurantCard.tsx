@@ -1,11 +1,10 @@
 import {useState, useEffect} from 'react';
 import {ShimmerComponent} from "./Shimmer";
+import {Link} from "react-router-dom";
+import {Star} from "./Star";
 
 const RestaurantCard = ({resData}) => {
-    let stars = "";
-    for (let i = 0; i < resData.star; i++) {
-        stars += " * "
-    }
+
     return (<div className="restaurantCard">
         <div>
             <img className="restaurantCardImage"
@@ -13,7 +12,7 @@ const RestaurantCard = ({resData}) => {
         </div>
         <h3>{resData.name}</h3>
         <h3>{resData.cuisines}</h3>
-        <h4>{stars}</h4>
+        <h4><Star stars = {resData.star}/></h4>
     </div>)
 }
 
@@ -62,7 +61,7 @@ export  const RestaurantContainer = () => {
             </div>
             <div className="restaurantContainer">
                 {
-                    filteredResList.map((res, index) => <RestaurantCard key={res.id} resData={res}/>)
+                    filteredResList.map((res, index) => <Link to={"/restaurant/"+res.id}><RestaurantCard key={res.id} resData={res}/> </Link>)
                 }
             </div>
         </div>
