@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "dev": "npx parcel index.html",
-    "build": "npx parcel build index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "Manish dsouza",
   "license": "ISC",
@@ -16,5 +16,6 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "browserslist": ["last 10 versions"]
 }

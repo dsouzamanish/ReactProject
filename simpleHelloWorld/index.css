@@ -1,3 +1,76 @@
-#header {
-    color: blueviolet;
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: solid blueviolet;
+    border-radius: initial;
+}
+.logo {
+    display: flex;
+    width: 150px;
+    height: 150px;
+}
+
+.navbar {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+}
+
+.navbar > ul {
+    display: flex;
+    list-style: none
+}
+.navbar > ul > li {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search {
+    padding: 30px;
+    text-align: center;
+}
+
+.restaurantContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.restaurantCard {
+    border: solid blueviolet;
+    margin: 10px;
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: "Bitstream Charter";
+}
+
+.restaurantCardImage {
+    width: 100%;
+    height: 200px;
+}
+
+.shimmer-res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shimmer-res-card {
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    height: 400px;
+    background-color: #f0f0f0;
+
+}
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-inside: 10px;
 }
