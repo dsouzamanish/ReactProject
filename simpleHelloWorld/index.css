@@ -97,3 +97,16 @@
     padding: 10px;
     font-family: "Roboto Light";
 }
+
+.aboutus {
+    display: flex;
+    flex-wrap: wrap;;
+}
+.user {
+    border: solid #0b4734;
+     width: 500px;
+     height: 500px;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
