@@ -3,5 +3,5 @@ export const Star = ({stars}) => {
     for (let i = 0; i < stars; i++) {
         starscount += " * "
     }
-    return <p>Ratings : {starscount}</p>
+    return <p><span className="text-5xl text-yellow-600">{starscount} </span> </p>
 }

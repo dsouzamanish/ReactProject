@@ -3,8 +3,7 @@ import {UserClass} from "./UserClass";
 
 export const About = () => {
     return (
-        <div className="aboutus">
-            About us
+        <div className="flex justify-center">
             <UserClass name="Manish Dsouza (class)" location="Mumbai" contact="dsouzamanish@gmail.com"/>
         </div>
     )
