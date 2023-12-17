@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {ShimmerComponent} from "./Shimmer";
 import {Link} from "react-router-dom";
 import {Star} from "./Star";
+import {useRestraurantCard} from "../hooks/useRestaurantCards.ts";
 
 const RestaurantCard = ({resData}) => {
 
@@ -19,31 +20,15 @@ const RestaurantCard = ({resData}) => {
 
 
 export  const RestaurantContainer = () => {
-    const [resList, setResList] = useState([]);
+    const [searchText, setSearchText] = useState();
     const [filteredResList, setFilteredResList] = useState([]);
 
-    const [searchText, setSearchText] = useState();
+    const {resList} = useRestraurantCard();
+    useEffect(() => {
+        setFilteredResList(resList)
+    }, [resList]);
 
-    useEffect(  () => {
-        const fetchData = async ()=> {
-            const response= await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.113645&lng=72.8697339&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",)
-            const data = await response.json();
-            let restListFromApi = data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            const resData = restListFromApi?.map((res) => {
-                return {
-                    name: res.info.name,
-                    cuisines: res.info.cuisines.join(", "),
-                    id: res.info.id,
-                    star: res.info.avgRating,
-                    cloudinaryImageId: res.info.cloudinaryImageId
-                }
-            })
-            setResList(resData);
-            setFilteredResList(resData);
-        }
-        fetchData();
-    }, []);
-    return resList.length === 0 ? <ShimmerComponent /> : (
+    return filteredResList.length === 0 ? <ShimmerComponent /> : (
         <div className="body">
             <div className='filter'>
                 <input type="text"  value={searchText} onChange={(e) => {
@@ -61,7 +46,7 @@ export  const RestaurantContainer = () => {
             </div>
             <div className="restaurantContainer">
                 {
-                    filteredResList.map((res, index) => <Link to={"/restaurant/"+res.id}><RestaurantCard key={res.id} resData={res}/> </Link>)
+                    filteredResList.map((res, index) => <Link key={res.id} to={"/restaurant/"+res.id}><RestaurantCard  resData={res}/> </Link>)
                 }
             </div>
         </div>
