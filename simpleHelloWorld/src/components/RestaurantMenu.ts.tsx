@@ -1,11 +1,12 @@
 import {useParams} from 'react-router-dom'
 import {ShimmerComponent} from "./Shimmer";
 import {useRestraurantMenu} from "../hooks/useRestraurantMenu";
-import {Star} from "./Star";
+import {useState} from 'react'
 import {RestaurantMenuCategory} from "./RestaurantMenuCategory";
 export const RestaurantMenu = () => {
     const {resId}  = useParams();
     const resData = useRestraurantMenu(resId);
+    const [showItems, setShowItems] = useState(0);
     if(resData === {}) {
         return <ShimmerComponent />
     }
@@ -16,9 +17,12 @@ export const RestaurantMenu = () => {
             </div>
             <div className="border-purple-400">
                 <ul className="p-4">
-                    {resData.menuCategory?.map(({card}) => (
-                        <RestaurantMenuCategory key={card?.card?.title} categoryMenu={card?.card}/>
-                    ))}
+                    { resData.menuCategory?.map(({card}, index) => (
+                        <RestaurantMenuCategory key={card?.card?.title} categoryMenu={card?.card} showItems={showItems === index} setShowItems = {()=> {
+                         return setShowItems(index)
+                        }}/>
+                    ))
+                    }
                 </ul>
             </div>
 
