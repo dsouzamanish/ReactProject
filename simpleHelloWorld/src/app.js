@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import {HeaderComponent} from "./components/Header.ts.tsx";
-import {RestaurantContainer} from "./components/RestaurantCard";
+import {RestaurantContainer} from "./components/RestaurantList.tsx";
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 import {About} from "./components/About.ts";
 import {Error} from "./components/Error.ts";

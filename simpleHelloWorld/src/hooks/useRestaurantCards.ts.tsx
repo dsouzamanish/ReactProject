@@ -15,7 +15,8 @@ export const useRestraurantCard = () => {
                 cuisines: res.info.cuisines.join(", "),
                 id: res.info.id,
                 star: res.info.avgRating,
-                cloudinaryImageId: res.info.cloudinaryImageId
+                cloudinaryImageId: res.info.cloudinaryImageId,
+                promoted: Math.floor(Math.random() * 101) >= 70 ? true: false
             }
         })
         setResList(resData);
