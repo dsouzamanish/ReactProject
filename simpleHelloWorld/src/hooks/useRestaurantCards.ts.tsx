@@ -16,7 +16,8 @@ export const useRestraurantCard = () => {
                 id: res.info.id,
                 star: res.info.avgRating,
                 cloudinaryImageId: res.info.cloudinaryImageId,
-                promoted: Math.floor(Math.random() * 101) >= 70 ? true: false
+                promoted: Math.floor(Math.random() * 101) >= 70 ? true: false,
+                searchName: res.info.name.toLowerCase()
             }
         })
         setResList(resData);
